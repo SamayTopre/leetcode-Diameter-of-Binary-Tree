@@ -1,0 +1,26 @@
+class Solution {
+
+public:
+int path;
+int solve(TreeNode*root)
+{
+if(root==NULL)
+{
+    return 0;
+}
+int lh=solve(root->left);
+int rh=solve(root->right);
+path=max(path,lh+rh+1);
+return (max(lh,rh)+1);
+
+}
+
+
+
+    int diameterOfBinaryTree(TreeNode* root) {
+path=INT_MIN;
+int x=solve(root);
+return path-1;
+        
+    }
+};
